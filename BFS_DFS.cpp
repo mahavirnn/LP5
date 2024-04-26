@@ -1,11 +1,6 @@
-#include <iostream>
-#include <vector>
-#include <queue>
-#include <omp.h>
-
+#include <bits/stdc++.h>
 using namespace std;
 
-// Define the graph structure (undirected graph)
 class Graph
 {
     int V;                   // Number of vertices
@@ -18,18 +13,15 @@ public:
         adj.resize(V);
     }
 
-    // Function to add an edge to the graph
     void addEdge(int u, int v)
     {
         adj[u].push_back(v);
         adj[v].push_back(u);
     }
 
-    // Parallel Breadth First Search
-    // Parallel Breadth First Search
     void parallelBFS(int source)
     {
-       vector<bool> visited(adj.size(), false);
+        vector<bool> visited(adj.size(), false);
         queue<int> q;
         visited[source] = true;
         q.push(source);
