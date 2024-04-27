@@ -17,7 +17,6 @@ void bubbleSort(vector<int> &arr)
     }
 }
 
-// Function to merge two sorted subarrays
 void merge(vector<int> &arr, int l, int m, int r)
 {
     int n1 = m - l + 1;
@@ -61,7 +60,6 @@ void merge(vector<int> &arr, int l, int m, int r)
     }
 }
 
-// Parallel Bubble Sort
 void parallelBubbleSort(vector<int> &arr)
 {
     int n = arr.size();
@@ -78,7 +76,6 @@ void parallelBubbleSort(vector<int> &arr)
     }
 }
 
-// Function to perform Merge Sort recursively
 void mergeSort(vector<int> &arr, int l, int r)
 {
     if (l < r)
@@ -92,7 +89,6 @@ void mergeSort(vector<int> &arr, int l, int r)
     }
 }
 
-// Parallel Merge Sort
 void parallelMergeSort(vector<int> &arr, int l, int r)
 {
     if (l < r)
@@ -117,38 +113,32 @@ int main()
     const int size = 10000; // Size of the array
     vector<int> arr(size), arr_copy(size);
 
-    // Initialize the array with random values
     for (int i = 0; i < size; ++i)
     {
         arr[i] = rand() % 1000;
         arr_copy[i] = arr[i];
     }
 
-    // Measure sequential Bubble Sort execution time
     auto start = high_resolution_clock::now();
     bubbleSort(arr_copy);
     auto stop = high_resolution_clock::now();
     auto seq_duration_bubble = duration_cast<milliseconds>(stop - start);
 
-    // Measure parallel Bubble Sort execution time
     start = high_resolution_clock::now();
     parallelBubbleSort(arr);
     stop = high_resolution_clock::now();
     auto par_duration_bubble = duration_cast<milliseconds>(stop - start);
 
-    // Measure sequential Merge Sort execution time
     start = high_resolution_clock::now();
     mergeSort(arr_copy, 0, size - 1);
     stop = high_resolution_clock::now();
     auto seq_duration_merge = duration_cast<milliseconds>(stop - start);
 
-    // Measure parallel Merge Sort execution time
     start = high_resolution_clock::now();
     parallelMergeSort(arr, 0, size - 1);
     stop = high_resolution_clock::now();
     auto par_duration_merge = duration_cast<milliseconds>(stop - start);
 
-    // Output results
     cout << "Sequential Bubble Sort Time: " << seq_duration_bubble.count() << " milliseconds" << endl;
     cout << "Parallel Bubble Sort Time: " << par_duration_bubble.count() << " milliseconds" << endl;
     cout << "Sequential Merge Sort Time: " << seq_duration_merge.count() << " milliseconds" << endl;
