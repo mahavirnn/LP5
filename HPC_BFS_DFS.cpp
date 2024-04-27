@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-
 class Graph
 {
     int V;                   // Number of vertices
@@ -55,8 +54,6 @@ public:
         }
     }
 
-    // Parallel Depth First Search
-    // Parallel Depth First Search
     void parallelDFSUtil(int v, vector<bool> &visited)
     {
         visited[v] = true;
@@ -83,7 +80,6 @@ public:
 
 int main()
 {
-    // Create a graph
     Graph g(6);
     g.addEdge(0, 1);
     g.addEdge(0, 2);
